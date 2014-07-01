@@ -48,6 +48,33 @@ Run the examples from the top-level directory ``geometric-integration``
 like so:
 
     $ python examples/pendulum.py
+    
+Adding a New Solver
+-------------------
+
+It's easy to create a new Hamiltonian solver as long as you can implement the single-step function.
+
+1. Create a new Python module ``mysolver.py`` in the ``geomint/solvers/`` directory.
+2. Inside the file, create a new subclass of the `Solver` class and an instance of it like so:
+
+    ```
+    from .solver import Solver
+    class MySolver_Solver(Solver):
+        def step(self, H, pn, qn, h):
+            # code to compute the next iterate, pnp1 and qnp1, using
+            # the Hamiltonian H, current values pn and qn, and step
+            # size h
+            return pnp1, qnp1
+    MySolver = MySolver_Solver()
+    ```
+    
+3. "Register" your solver with geomint by adding the following line to ``geomint/solvers/__init__.py``:
+
+    ```
+    from .mysolver import MySolver
+    ```
+    
+4. That's it! Your new solver is now accessible from the rest of the software.
 
 Authors
 -------
