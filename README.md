@@ -41,6 +41,14 @@ by running:
     $ python setup.py build
     # python setup.py install
 
+Examples
+--------
+
+Run the examples from the top-level directory ``geometric-integration``
+like so:
+
+    $ python examples/pendulum.py
+
 Authors
 -------
 
