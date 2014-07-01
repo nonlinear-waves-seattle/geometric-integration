@@ -1,3 +1,7 @@
+# ipython and ipython notebook
+*.ipynb
+.ipynb_checkpoints
+
 # emacs temp files
 *~
 
