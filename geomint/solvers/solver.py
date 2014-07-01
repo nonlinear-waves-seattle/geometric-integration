@@ -3,11 +3,20 @@ import numpy
 class Solver(object):
     r"""Abstract Hamiltonian solver object.
 
+    Implementations of Hamiltonian solvers should inherit from this
+    object and define the method :py:meth:`step`. ``step`` defines how
+    the implemented method performs a single time step of size `h`.
+
+    Attributes
+    ----------
+    None
+
     Methods
     -------
-
     solve
 
+    Contents
+    --------
     """
     def __init__(self):
         pass
@@ -16,10 +25,30 @@ class Solver(object):
         return 'Abstract Hamiltonian solver.'
 
     def step(self, H, pn, qn, h):
+        r"""Perform a single time step of the solver.
+
+        Parameters
+        ----------
+        H : Hamiltonian
+        pn, qn : arrays
+            The Hamiltonian and a solution at some time.
+        h : double
+            The size of the time step to take.
+
+        Returns
+        -------
+        array, array
+            The values of `p` and `q` after a step of size `h`.
+
+        .. note::
+
+            This method must be implemented in subclasses.
+
+        """
         raise NotImplementedError('Implement the single-step algorithm.')
 
     def solve(self, H, p0, q0, t):
-        r"""Solve for p(t) and q(t) with the Hamiltonian H.
+        r"""Solve for `p(t)` and `q(t)` with the Hamiltonian `H`.
 
         Parameters
         ----------
