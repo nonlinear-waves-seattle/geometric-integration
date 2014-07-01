@@ -106,9 +106,7 @@ class test_geomint(Command):
 packages = []
 ext_modules = []
 
-tests = [
-    'geometric_integration.tests',
-    ]
+tests = ['geomint.tests']
 
 classifiers = [
     'Programming Language :: Python',
