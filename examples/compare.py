@@ -39,6 +39,8 @@ def main():
             ax.plot(p, q, color=color)
 
     print 'Plotting...'
+    ax.set_xlabel('p')
+    ax.set_ylabel('q')
     plt.show()
 
 
