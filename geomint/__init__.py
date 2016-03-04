@@ -1,4 +1,4 @@
 # geomint __init__.py
 
-from hamiltonian import Hamiltonian
-from solvers import *
+from geomint.hamiltonian import Hamiltonian
+from geomint.solvers import *
